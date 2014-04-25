@@ -55,6 +55,7 @@
 							org.everit.commons.selection,
 							org.everit.commons.selection.lang,
 							org.everit.commons.selection.math,
+							org.everit.commons.selection.sql,
 							org.everit.commons.selection.util,
 						</Export-Package>
 					</instructions>
