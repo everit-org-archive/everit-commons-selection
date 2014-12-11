@@ -21,25 +21,20 @@ import java.io.Serializable;
 /**
  * Represents a range which is bounded by two values. The type of the bounding values can be any comparable types. The
  * constructors validate data integrity (i.e. if the lower bound is lower than or equal to the higher bound value).
- * 
+ *
  * The represented range can be open or closed at both bounds.
  * <ul>
- * <li>If the {@link Range#getLowerInclusive() lowerInclusive} property is <code>true</code> then the interval should be
+ * <li>If the {@link Range#isLowerInclusive() lowerInclusive} property is <code>true</code> then the interval should be
  * considered as being open from the lower bound.</li>
- * <li>If the {@link Range#getHigherInclusive() higherInclusive} property is <code>true</code> then the interval should
+ * <li>If the {@link Range#isHigherInclusive() higherInclusive} property is <code>true</code> then the interval should
  * be considered as being open from the higher bound.</li>
  * </ul>
- * 
+ *
  * @param <T>
  *            The type of the bounding values. It is strongly recommended to use immutable types since the {@link Range}
  *            class does not ensure thread safety.
  */
 public class Range<T extends Comparable<? super T>> implements Serializable {
-
-    /**
-     * Serial version UID.
-     */
-    private static final long serialVersionUID = -4567444380490553673L;
 
     protected static int alignComparisionResultBasedOnInclusive(int value, final boolean forLowerBound,
             final boolean thisInclusive, final boolean otherInclusive) {
@@ -53,6 +48,11 @@ public class Range<T extends Comparable<? super T>> implements Serializable {
         return value;
     }
 
+    /**
+     * Serial version UID.
+     */
+    private static final long serialVersionUID = -4567444380490553673L;
+
     protected final T lowerBound;
 
     protected final T higherBound;
@@ -63,11 +63,13 @@ public class Range<T extends Comparable<? super T>> implements Serializable {
 
     /**
      * Creates a range with the given bounding values.
-     * 
+     *
      * The created range will be open at both bounds.
      * 
      * @param lowerBound
+     *            the lowe bound
      * @param higherBound
+     *            the higher bound
      */
     public Range(final T lowerBound, final T higherBound) {
         super();
@@ -121,7 +123,7 @@ public class Range<T extends Comparable<? super T>> implements Serializable {
 
     /**
      * Determines the relation of this range to an other range.
-     * 
+     *
      * Returns
      * <ul>
      * <li>{@link RangeRelation#BEFORE} if the <code>other</code> is before this range and they don't have common
@@ -137,9 +139,10 @@ public class Range<T extends Comparable<? super T>> implements Serializable {
      * <code>other</code> ends after the end of this range.</li>
      * <li>{@link RangeRelation#AFTER} if <code>other</code> starts after the end of this range.</li>
      * </ul>
-     * 
+     *
      * @param other
-     * @return
+     *            The other range to compare to.
+     * @return the relation
      */
     public RangeRelation getRelationTo(final Range<T> other) {
         if (this == other) {
@@ -253,9 +256,10 @@ public class Range<T extends Comparable<? super T>> implements Serializable {
     /**
      * Returns the union of <code>this</code> and <code>other</code>. The method does not modify neither
      * <code>this</code> or <code>other</code>.
-     * 
+     *
      * @param other
-     * @return
+     *            the range to union
+     * @return the union
      */
     public Range<T> union(final Range<T> other) {
         T lowerBound, higherBound;

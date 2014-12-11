@@ -53,7 +53,8 @@ public enum RangeRelation {
     }
 
     /**
-     * Determines if the other range ends after the original range.
+     * Determines if the other range ends after the original range. return <code>true</code> if the other range ends
+     * after the original range
      */
     public boolean endsAfter() {
         return endsAfter;
@@ -61,6 +62,8 @@ public enum RangeRelation {
 
     /**
      * Determines if the two ranges are distinct.
+     * 
+     * @return <code>true</code> if the two ranges are distinct
      */
     public boolean isDistinct() {
         return distinct;
@@ -68,6 +71,8 @@ public enum RangeRelation {
 
     /**
      * Determines if the other range starts before the original range.
+     * 
+     * @return <code>true</code> if the other range starts before the original range
      */
     public boolean startsBefore() {
         return startsBefore;

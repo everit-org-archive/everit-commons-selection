@@ -23,11 +23,11 @@ public final class LimitUtil {
      * {@link Limit#getFirstResult()} then the given {@link Limit} will be returned. Otherwise a new {@link Limit} will
      * be created with a modified {@link Limit#getFirstResult()} value (the range will be within 0 and the number of all
      * elements).
-     * 
+     *
      * @param limit
      *            the {@link Limit} to check, cannot be null
      * @param numberOfAllElements
-     *            the reference that will be checked against the {@link #firstResult}
+     *            the reference that will be checked against the {@link Limit#getFirstResult()}
      * @return The valid range that corresponds to the number of all elements.
      */
     public static Limit shiftIfNecessary(final Limit limit, final long numberOfAllElements) {

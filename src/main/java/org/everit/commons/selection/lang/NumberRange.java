@@ -22,12 +22,13 @@ import org.everit.commons.selection.Range;
  * Base class for representing number ranges. An appropriate subclass can be found in the
  * <code>org.everit.util.core.filter</code> package for each primitive wrapper class (except {@link Character} which is
  * not considered as a number).
- * 
+ *
  * Provides the abstract utility method {@link #getLength()} which returns the difference between the lower bound and
  * the higher bound for each {@link Number} subclass. Each implementation performs a substraction-like operation between
  * the lowe and higher bounds of the range.
- * 
+ *
  * @param <T>
+ *            the type of the number range
  */
 public abstract class NumberRange<T extends Number & Comparable<? super T>> extends Range<T> {
 
@@ -44,7 +45,7 @@ public abstract class NumberRange<T extends Number & Comparable<? super T>> exte
 
     /**
      * @return the length of the number range (ie. the difference between the lower bound and the higher bound).
-     * 
+     *
      *         The implementations don't care if the range is open or closed on any bounds (meaning the
      *         {@code lowerInclusive} and {@code higherInclusive} properties.
      */

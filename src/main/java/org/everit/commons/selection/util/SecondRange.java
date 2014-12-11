@@ -36,11 +36,11 @@ public class SecondRange extends LongRange {
 
     /**
      * Returns the interval duration described in human-readable format.
-     * 
+     *
      * The result will be in "((\d+)h)? ?((\d+)m)? ?((\d+)s)?" format.
-     * 
+     *
      * Examples:
-     * <table style="width:400px">
+     * <table style="width:400px" summary="">
      * <thead>
      * <tr>
      * <th>Interval</th>
@@ -81,8 +81,10 @@ public class SecondRange extends LongRange {
      * </tr>
      * </tbody>
      * </table>
-     * 
+     *
      * Useful for debugging and displaying purposes.
+     *
+     * @return range as duration
      */
     public String getAsDuration() {
         if (lowerBound.longValue() == higherBound.longValue()) {
